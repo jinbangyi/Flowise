@@ -694,7 +694,8 @@ export const previewChunks = async ({ appDataSource, componentNodes, data, orgId
                 data.loaderId === 'puppeteerWebScraper' ||
                 data.loaderId === 'playwrightWebScraper'
             ) {
-                data.loaderConfig['limit'] = 3
+                if (!data.loaderConfig) data.loaderConfig = {}
+                if (!data.loaderConfig['limit']) data.loaderConfig['limit'] = 3
             }
         }
         if (!data.rehydrated) {
