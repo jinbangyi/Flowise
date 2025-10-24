@@ -111,6 +111,16 @@ class Pinecone_VectorStores implements INode {
             }
         ]
         addMMRInputParams(this.inputs)
+        this.inputs.push({
+            label: 'Alpha (for Hybrid Search)',
+            name: 'alpha',
+            description:
+                'Number between 0 and 1 that determines the weighting of keyword (BM25) portion of the hybrid search. A value of 1 is a pure vector search, while 0 is a pure keyword search.',
+            placeholder: '1',
+            type: 'number',
+            additionalParams: true,
+            optional: true
+        })
         this.outputs = [
             {
                 label: 'Pinecone Retriever',
