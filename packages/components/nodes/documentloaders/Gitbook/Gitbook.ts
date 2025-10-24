@@ -1,7 +1,8 @@
 import { omit } from 'lodash'
 import { IDocument, INode, INodeData, INodeOutputsValue, INodeParams } from '../../../src/Interface'
 import { TextSplitter } from 'langchain/text_splitter'
-import { GitbookLoader } from '@langchain/community/document_loaders/web/gitbook'
+// import { GitbookLoader } from '@langchain/community/document_loaders/web/gitbook'
+import { GitbookLoaderFixed as GitbookLoader } from './GitbookLoaderSitemapIndex'
 import { handleEscapeCharacters } from '../../../src/utils'
 
 class Gitbook_DocumentLoaders implements INode {
