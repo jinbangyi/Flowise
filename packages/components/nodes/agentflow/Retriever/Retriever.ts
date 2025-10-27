@@ -173,7 +173,8 @@ class Retriever_Agentflow implements INode {
                     options
                 )) as BaseRetriever
 
-                docs = await docStoreVectorInstance.invoke(retrieverQuery || input, { signal: abortController?.signal })
+                const newDocs = await docStoreVectorInstance.invoke(retrieverQuery || input, { signal: abortController?.signal })
+                docs = [...docs, ...newDocs]
             }
         }
 
